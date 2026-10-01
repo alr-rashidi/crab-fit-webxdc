@@ -47,10 +47,10 @@ jobs:
         run: |
           if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
             VERSION="${GITHUB_REF_NAME#v}"
-            XDC_NAME="md-xdc-${VERSION}.xdc"
+            XDC_NAME="crab-fit-${VERSION}.xdc"
           else
             VERSION="dev"
-            XDC_NAME="md-xdc-dev.xdc"
+            XDC_NAME="crab-fit-dev.xdc"
           fi
           {
             echo "VERSION=${VERSION}"
