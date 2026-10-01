@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-crab-dark {
+    background-color: #FAF8EE;
+  }
+  .bg-crab-card {
+    background-color: #ffffff;
+  }
+  .bg-crab-input {
+    background-color: #ffffff;
+  }
+  .border-crab-orange {
+    border-color: #000000;
+  }
+  .bg-crab-orange {
+    background-color: #F79E00;
+  }
+  .text-crab-orange {
+    color: #000000;
+  }
+  .text-crab-muted {
+    color: #333333;
+  }
+}
+
+/* Custom Neo-Brutalist aesthetics */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global smooth transitions for all interactive components */
+button, 
+input, 
+select, 
+textarea, 
+a, 
+.calendar-day-cell, 
+.grid-cell-interactive,
+.tab-btn,
+.btn-day-of-week {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth drag selection prevention */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-left: 2px solid #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #F79E00;
+  border-radius: 0px;
+  border: 2px solid #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFB833;
+}
+
+/* Dotted grid lines matching Crab.fit screenshot 1 */
+.grid-slot-dashed {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.grid-slot-dotted-bold {
+  border-bottom: 2px solid #000000;
+}
+
+/* Neo-Brutal Shadow & Translation states */
+.neo-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+.neo-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+.neo-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+/* Modal entering animation keyframes */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalContentShow {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-backdrop {
+  animation: modalFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-content {
+  animation: modalContentShow 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Page & Tab view transitions */
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tabFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
+.animate-tab-enter {
+  animation: tabFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
